@@ -22,7 +22,7 @@ pub mod request {
 
     #[derive(Clone, Debug, Serialize, Deserialize)]
     pub struct Request {
-        pub token: u64,
+        pub token: String,
         pub msg: Option<String>,
     }
 }
@@ -32,7 +32,7 @@ pub mod response {
 
     #[derive(Clone, Debug, Deserialize, Serialize)]
     pub struct NormalResponse {
-        pub token: u64,
+        pub token: String,
         pub msg: DisplayMessage,
     }
 
