@@ -38,13 +38,24 @@ pub mod response {
 
     #[derive(Clone, Debug, Deserialize, Serialize)]
     pub enum DisplayMessage {
-        New,
+        /// Reference to a topic name
+        New {
+            topic: String,
+        },
         NotifyAssessment,
         Assess(String),
         Display(String, String),
     }
 }
 
-pub fn version() -> &'static str {
-    env!("CARGO_PKG_VERSION")
+pub mod header {
+    use serde::{Deserialize, Serialize};
+
+    #[derive(Clone, Debug, Deserialize, Serialize)]
+    pub struct Topic {
+        pub title: String,
+        pub body: String,
+    }
 }
+
+pub const VERSION: &str = env!("CARGO_PKG_VERSION");
