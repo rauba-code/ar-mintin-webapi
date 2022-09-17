@@ -53,8 +53,8 @@ pub mod header {
 
     #[derive(Clone, Debug, Deserialize, Serialize)]
     pub struct Topic {
-        pub title: String,
-        pub body: String,
+        pub title: Option<String>,
+        pub body: Option<String>,
     }
 }
 
